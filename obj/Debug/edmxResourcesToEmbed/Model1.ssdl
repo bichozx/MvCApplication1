@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HospitalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="cita">
+    <Key>
+      <PropertyRef Name="cod_cita" />
+    </Key>
+    <Property Name="cod_cita" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="hora" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Id_paciente" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="id_medico" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="valor" Type="int" Nullable="false" />
+    <Property Name="diagnostico" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nom_acompanante" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="medico">
+    <Key>
+      <PropertyRef Name="id_medico" />
+    </Key>
+    <Property Name="id_medico" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="nom_medico" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="especialidad" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="tel_medico" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="paciente">
+    <Key>
+      <PropertyRef Name="Id_paciente" />
+    </Key>
+    <Property Name="Id_paciente" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="tip_doc" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="nom_paciente" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dir_paciente" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="tel_paciente" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="cel_paciente" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_cita_medico1">
+    <End Role="medico" Type="Self.medico" Multiplicity="1" />
+    <End Role="cita" Type="Self.cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="medico">
+        <PropertyRef Name="id_medico" />
+      </Principal>
+      <Dependent Role="cita">
+        <PropertyRef Name="id_medico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_cita_paciente">
+    <End Role="paciente" Type="Self.paciente" Multiplicity="1" />
+    <End Role="cita" Type="Self.cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="paciente">
+        <PropertyRef Name="Id_paciente" />
+      </Principal>
+      <Dependent Role="cita">
+        <PropertyRef Name="Id_paciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HospitalModelStoreContainer">
+    <EntitySet Name="cita" EntityType="Self.cita" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="medico" EntityType="Self.medico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="paciente" EntityType="Self.paciente" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_cita_medico1" Association="Self.FK_cita_medico1">
+      <End Role="medico" EntitySet="medico" />
+      <End Role="cita" EntitySet="cita" />
+    </AssociationSet>
+    <AssociationSet Name="FK_cita_paciente" Association="Self.FK_cita_paciente">
+      <End Role="paciente" EntitySet="paciente" />
+      <End Role="cita" EntitySet="cita" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

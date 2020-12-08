@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HospitalModelStoreContainer" CdmEntityContainer="HospitalEntities">
+    <EntitySetMapping Name="cita">
+      <EntityTypeMapping TypeName="HospitalModel.cita">
+        <MappingFragment StoreEntitySet="cita">
+          <ScalarProperty Name="cod_cita" ColumnName="cod_cita" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="Id_paciente" ColumnName="Id_paciente" />
+          <ScalarProperty Name="id_medico" ColumnName="id_medico" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="diagnostico" ColumnName="diagnostico" />
+          <ScalarProperty Name="Nom_acompanante" ColumnName="Nom_acompanante" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="medico">
+      <EntityTypeMapping TypeName="HospitalModel.medico">
+        <MappingFragment StoreEntitySet="medico">
+          <ScalarProperty Name="id_medico" ColumnName="id_medico" />
+          <ScalarProperty Name="nom_medico" ColumnName="nom_medico" />
+          <ScalarProperty Name="especialidad" ColumnName="especialidad" />
+          <ScalarProperty Name="tel_medico" ColumnName="tel_medico" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="paciente">
+      <EntityTypeMapping TypeName="HospitalModel.paciente">
+        <MappingFragment StoreEntitySet="paciente">
+          <ScalarProperty Name="Id_paciente" ColumnName="Id_paciente" />
+          <ScalarProperty Name="tip_doc" ColumnName="tip_doc" />
+          <ScalarProperty Name="nom_paciente" ColumnName="nom_paciente" />
+          <ScalarProperty Name="dir_paciente" ColumnName="dir_paciente" />
+          <ScalarProperty Name="tel_paciente" ColumnName="tel_paciente" />
+          <ScalarProperty Name="cel_paciente" ColumnName="cel_paciente" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

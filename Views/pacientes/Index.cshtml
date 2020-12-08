@@ -1,0 +1,64 @@
+﻿@model IEnumerable<MvCApplication1.paciente>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tip_doc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nom_paciente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dir_paciente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tel_paciente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cel_paciente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.activo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tip_doc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nom_paciente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dir_paciente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tel_paciente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cel_paciente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.activo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id_paciente }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id_paciente }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id_paciente })
+        </td>
+    </tr>
+}
+
+</table>

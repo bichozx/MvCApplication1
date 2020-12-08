@@ -1,0 +1,67 @@
+﻿@model MvCApplication1.paciente
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>paciente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tip_doc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tip_doc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nom_paciente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nom_paciente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dir_paciente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dir_paciente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tel_paciente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tel_paciente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cel_paciente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cel_paciente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.activo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.activo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_paciente }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
